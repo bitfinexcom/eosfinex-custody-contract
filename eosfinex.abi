@@ -1,0 +1,452 @@
+{
+  "version": "eosio::abi/1.1",
+  "types": [],
+  "structs": [{
+      "name": "Order",
+      "base": "",
+      "fields": [{
+          "name": "seskey1",
+          "type": "uint32"
+        },{
+          "name": "seskey2",
+          "type": "uint32"
+        },{
+          "name": "nonce",
+          "type": "uint64"
+        },{
+          "name": "price",
+          "type": "asset"
+        },{
+          "name": "amount",
+          "type": "asset"
+        },{
+          "name": "flags",
+          "type": "uint64"
+        }
+      ]
+    },{
+      "name": "SignedTransaction",
+      "base": "",
+      "fields": [{
+          "name": "expiration",
+          "type": "time_point_sec"
+        },{
+          "name": "ref_block_num",
+          "type": "uint16"
+        },{
+          "name": "ref_block_prefix",
+          "type": "uint32"
+        },{
+          "name": "max_net_usage_words",
+          "type": "varuint32"
+        },{
+          "name": "max_cpu_usage_ms",
+          "type": "uint8"
+        },{
+          "name": "delay_sec",
+          "type": "varuint32"
+        },{
+          "name": "context_free_actions",
+          "type": "action[]"
+        },{
+          "name": "actions",
+          "type": "action[]"
+        },{
+          "name": "transaction_extensions",
+          "type": "extension[]"
+        },{
+          "name": "signatures",
+          "type": "signature[]"
+        },{
+          "name": "context_free_data",
+          "type": "uint8[]"
+        }
+      ]
+    },{
+      "name": "account",
+      "base": "",
+      "fields": [{
+          "name": "balance",
+          "type": "asset"
+        },{
+          "name": "reserved1",
+          "type": "uint64"
+        }
+      ]
+    },{
+      "name": "action",
+      "base": "",
+      "fields": [{
+          "name": "account",
+          "type": "name"
+        },{
+          "name": "name",
+          "type": "name"
+        },{
+          "name": "authorization",
+          "type": "permission_level[]"
+        },{
+          "name": "data",
+          "type": "bytes"
+        }
+      ]
+    },{
+      "name": "cancel",
+      "base": "",
+      "fields": [{
+          "name": "signedTransaction",
+          "type": "SignedTransaction"
+        }
+      ]
+    },{
+      "name": "currency_stats",
+      "base": "",
+      "fields": [{
+          "name": "supply",
+          "type": "asset"
+        },{
+          "name": "max_supply",
+          "type": "asset"
+        },{
+          "name": "issuer",
+          "type": "name"
+        }
+      ]
+    },{
+      "name": "extension",
+      "base": "",
+      "fields": [{
+          "name": "type",
+          "type": "uint16"
+        },{
+          "name": "data",
+          "type": "bytes"
+        }
+      ]
+    },{
+      "name": "fill",
+      "base": "",
+      "fields": [{
+          "name": "id",
+          "type": "uint64"
+        },{
+          "name": "hash",
+          "type": "checksum256"
+        },{
+          "name": "filled",
+          "type": "uint64"
+        },{
+          "name": "expiration",
+          "type": "uint32"
+        },{
+          "name": "reserved1",
+          "type": "uint64"
+        }
+      ]
+    },{
+      "name": "listedtoken",
+      "base": "",
+      "fields": [{
+          "name": "token",
+          "type": "symbol"
+        },{
+          "name": "issuer",
+          "type": "name"
+        },{
+          "name": "minsize",
+          "type": "uint64"
+        },{
+          "name": "reserved1",
+          "type": "uint64"
+        }
+      ]
+    },{
+      "name": "permission_level",
+      "base": "",
+      "fields": [{
+          "name": "actor",
+          "type": "name"
+        },{
+          "name": "permission",
+          "type": "name"
+        }
+      ]
+    },{
+      "name": "place",
+      "base": "",
+      "fields": [{
+          "name": "order",
+          "type": "Order"
+        }
+      ]
+    },{
+      "name": "prune",
+      "base": "",
+      "fields": [{
+          "name": "size",
+          "type": "uint32"
+        }
+      ]
+    },{
+      "name": "regtoken",
+      "base": "",
+      "fields": [{
+          "name": "account",
+          "type": "name"
+        },{
+          "name": "token",
+          "type": "symbol_code"
+        },{
+          "name": "minsize",
+          "type": "int64"
+        }
+      ]
+    },{
+      "name": "reguser",
+      "base": "",
+      "fields": [{
+          "name": "account",
+          "type": "name"
+        },{
+          "name": "pubkey",
+          "type": "public_key"
+        },{
+          "name": "tos",
+          "type": "uint32"
+        }
+      ]
+    },{
+      "name": "request",
+      "base": "",
+      "fields": [{
+          "name": "quantity",
+          "type": "asset"
+        },{
+          "name": "time",
+          "type": "uint32"
+        },{
+          "name": "reserved1",
+          "type": "uint64"
+        }
+      ]
+    },{
+      "name": "settle",
+      "base": "",
+      "fields": [{
+          "name": "tradeId",
+          "type": "uint64"
+        },{
+          "name": "buyOrderId",
+          "type": "uint64"
+        },{
+          "name": "sellOrderId",
+          "type": "uint64"
+        },{
+          "name": "price",
+          "type": "asset"
+        },{
+          "name": "amount",
+          "type": "asset"
+        },{
+          "name": "buyFeeBps",
+          "type": "int8"
+        },{
+          "name": "sellFeeBps",
+          "type": "int8"
+        },{
+          "name": "buyTransation",
+          "type": "SignedTransaction"
+        },{
+          "name": "sellTransation",
+          "type": "SignedTransaction"
+        }
+      ]
+    },{
+      "name": "srvcwithdraw",
+      "base": "",
+      "fields": [{
+          "name": "account",
+          "type": "name"
+        },{
+          "name": "quantity",
+          "type": "asset"
+        }
+      ]
+    },{
+      "name": "ste",
+      "base": "",
+      "fields": [{
+          "name": "id",
+          "type": "uint32"
+        },{
+          "name": "reserved1",
+          "type": "uint64"
+        }
+      ]
+    },{
+      "name": "userkey",
+      "base": "",
+      "fields": [{
+          "name": "account",
+          "type": "name"
+        },{
+          "name": "pubkey",
+          "type": "public_key"
+        }
+      ]
+    },{
+      "name": "userstatus",
+      "base": "",
+      "fields": [{
+          "name": "account",
+          "type": "name"
+        },{
+          "name": "status",
+          "type": "uint32"
+        }
+      ]
+    },{
+      "name": "usertos",
+      "base": "",
+      "fields": [{
+          "name": "account",
+          "type": "name"
+        },{
+          "name": "tos",
+          "type": "uint32"
+        }
+      ]
+    },{
+      "name": "usr",
+      "base": "",
+      "fields": [{
+          "name": "pubkey",
+          "type": "public_key"
+        },{
+          "name": "status",
+          "type": "uint64"
+        },{
+          "name": "reserved1",
+          "type": "uint64"
+        }
+      ]
+    },{
+      "name": "validate",
+      "base": "",
+      "fields": [{
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },{
+      "name": "withdraw",
+      "base": "",
+      "fields": [{
+          "name": "account",
+          "type": "name"
+        },{
+          "name": "quantity",
+          "type": "asset"
+        }
+      ]
+    }
+  ],
+  "actions": [{
+      "name": "cancel",
+      "type": "cancel",
+      "ricardian_contract": ""
+    },{
+      "name": "place",
+      "type": "place",
+      "ricardian_contract": ""
+    },{
+      "name": "prune",
+      "type": "prune",
+      "ricardian_contract": ""
+    },{
+      "name": "regtoken",
+      "type": "regtoken",
+      "ricardian_contract": ""
+    },{
+      "name": "reguser",
+      "type": "reguser",
+      "ricardian_contract": ""
+    },{
+      "name": "settle",
+      "type": "settle",
+      "ricardian_contract": ""
+    },{
+      "name": "srvcwithdraw",
+      "type": "srvcwithdraw",
+      "ricardian_contract": ""
+    },{
+      "name": "userkey",
+      "type": "userkey",
+      "ricardian_contract": ""
+    },{
+      "name": "userstatus",
+      "type": "userstatus",
+      "ricardian_contract": ""
+    },{
+      "name": "usertos",
+      "type": "usertos",
+      "ricardian_contract": ""
+    },{
+      "name": "validate",
+      "type": "validate",
+      "ricardian_contract": ""
+    },{
+      "name": "withdraw",
+      "type": "withdraw",
+      "ricardian_contract": ""
+    }
+  ],
+  "tables": [{
+      "name": "accounts",
+      "index_type": "i64",
+      "key_names": [],
+      "key_types": [],
+      "type": "account"
+    },{
+      "name": "fills",
+      "index_type": "i64",
+      "key_names": [],
+      "key_types": [],
+      "type": "fill"
+    },{
+      "name": "listedtokens",
+      "index_type": "i64",
+      "key_names": [],
+      "key_types": [],
+      "type": "listedtoken"
+    },{
+      "name": "requests",
+      "index_type": "i64",
+      "key_names": [],
+      "key_types": [],
+      "type": "request"
+    },{
+      "name": "stat",
+      "index_type": "i64",
+      "key_names": [],
+      "key_types": [],
+      "type": "currency_stats"
+    },{
+      "name": "state",
+      "index_type": "i64",
+      "key_names": [],
+      "key_types": [],
+      "type": "ste"
+    },{
+      "name": "users",
+      "index_type": "i64",
+      "key_names": [],
+      "key_types": [],
+      "type": "usr"
+    }
+  ],
+  "ricardian_clauses": [],
+  "error_messages": [],
+  "abi_extensions": [],
+  "variants": []
+}
